@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BE.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin: 10px auto; width: 70%;">
+    <h2 style="text-align: center">DANH SÁCH THÀNH VIÊN</h2>
+    <p>
+        @Html.ActionLink("Tạo mới", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                <label for="name" class="form-label">TÊN THÀNH VIÊN</label>
+            </th>
+            <th>
+                <label for="pwd" class="form-label">PASSWORD:</label>
+            </th>
+            <th>
+                <label for="email" class="form-label">EMAIL</label>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CusPassword)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CusEmail)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.CusPhone }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.CusPhone }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.CusPhone })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

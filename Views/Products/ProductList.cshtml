@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BE.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2>MUA HÀNG</h2>
+    
+    <div class="row">
+        @foreach (var pro in Model)
+        {
+            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card-pro">
+                    <p>@Html.DisplayFor(model => pro.ProID)</p>
+                    <img src="~/Content/images/@pro.ProImage" width="200" height="250" />
+                    
+                    <p style="text-align: center;">
+                        <a class="btn btn-info" href="/Products/ProductDetails/@pro.ProID"> Chi tiết </a>
+                        <input type="submit" value="Mua" class="btn btn-danger" />
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

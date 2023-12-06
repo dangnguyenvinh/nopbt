@@ -1,0 +1,19 @@
+﻿@model BE.Models.Product
+
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Partial("ProInfoPartial", Model)
+
+<p style="text-align: center">
+    @Html.ActionLink("Mua", "Index", new { id = Model.ProID }, new { @class = "btn btn-primary" })
+
+</p>
+
+@Html.Action("Create", "Comments")
+@Html.Action("Index", "Comments")
+
+
